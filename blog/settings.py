@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -146,9 +147,6 @@ INSTALLED_APPS += ('django_summernote', )
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
-
-
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 AUTHENTICATION_BACKENDS = [
@@ -158,6 +156,7 @@ AUTHENTICATION_BACKENDS = [
     # Django ModelBackend is the default authentication backend.
     'django.contrib.auth.backends.ModelBackend',
 ]
+
 
 try:
     from .local_settings import *
