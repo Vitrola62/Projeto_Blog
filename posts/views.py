@@ -18,6 +18,7 @@ class PostIndex(ListView):
 
     def get_queryset(self):
         qs = super().get_queryset()
+        qs = qs.select_related('categoria_post')
         qs = qs.order_by('-id').filter(publicado_post=True)
         qs = qs.annotate(
             numero_comentarios=Count(
@@ -50,6 +51,7 @@ class PostBusca(PostIndex):
 
         return qs
 
+
 class PostCategoria(PostIndex):
     template_name = 'posts/post_categoria.html'
 
@@ -64,6 +66,7 @@ class PostCategoria(PostIndex):
         qs = qs.filter(categoria_post__nome_cat__iexact=categoria)
 
         return qs
+
 
 class PostDetalhes(View):
     template_name = 'posts/post_detalhes.html'
